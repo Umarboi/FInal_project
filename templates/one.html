@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/images/favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <title>Test Suggestion</title>
+
+    <style>
+        
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+    
+        .background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            animation: fadeIn 2s ease-in-out; 
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0.8;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+<section class="background">
+    <img src="../static/images/background1.jpg" alt="Background Image">
+</section>
+
+<!-- ye apna Navbar he bacchi -->
+<section class="content">
+<header>
+    <nav>
+        <div class="logo">
+            <img src="../static/images/the.png" alt="Your Logo">
+        </div>
+                
+        <ul class="nav-links">
+            <li><a href="/#index.html">Home</a></li>
+            <li><a href="/#team">Team</a></li>
+            <li><a href="/#blog">Blog</a></li>
+        </ul>
+</header>
+
+<section class="search-section">
+    <div class="search-container">
+        <input type="text" id="symptomInput" placeholder="Search your symptoms...">
+        <button class="search-button" onclick="searchSymptoms()">Search</button>
+    </div>
+</section>
+
+
+<section class="fever-container">
+        <div class="fever-input-container">
+            <label for="fever">Fever Reading (enter 98.6 if no fever):</label>
+            <input type="number" id="fever" name="fever" step="0.1" placeholder="Enter fever reading">
+        </div>
+
+</section>
+
+
+<section class="symptoms-container">
+    <div id="symptomsList">
+        <label class="checkbox-with-more-info">
+            <input type="checkbox" value="Urge to Urinate at Night"> Urge to Urinate at Night
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Excessive thirst and increased urination, especially during the night.</p>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" value="Craving Sweet Items"> Craving Sweet Items
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Craving Sweet Items means really wanting sugary foods like cakes, candies, and chocolate. It's when you just have to have something sweet.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Weight Loss"> Weight Loss
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Weight Loss can happen when someone is sick or not eating enough. It means getting lighter because the body is losing weight, often making the person look thinner.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Chills"> Chills
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Chills are sudden feelings of coldness, often accompanied by shivering. They can occur when you have a fever or when you're unwell.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Bleeding Tendencies"> Bleeding Tendencies
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Bleeding Tendencies indicates a tendency for increased bleeding, even from minor cuts or injuries.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Dizziness"> Dizziness
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Dizziness is the sensation of feeling unsteady or lightheaded, as if the world around you is spinning or moving, making it difficult to maintain balance.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Exhaustion"> Exhaustion
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Excessive thirst and increased urination, especially during the night.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Body Pain"> Body Pain
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Exhaustion refers to a state of extreme tiredness or fatigue, where the body and mind feel drained of energy, often making it difficult to perform daily tasks or concentrate on activities.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Joint Pain"> Joint Pain
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Joint Pain refers to discomfort, soreness, or aching sensations in one or more joints of the body, which can range from mild to severe and may be accompanied by swelling or stiffness.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Yellowing of Skin"> Yellowing of Skin
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Yellowing of the Skin is when the skin appears yellowish in color, often due to certain medical conditions affecting the body's pigment or blood.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Yellowing of Sclera"> Yellowing of Sclera
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>A condition where the white part of the eye, called the sclera, takes on a yellowish hue.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Anorexia"> Anorexia
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Anorexia is a condition where someone is really scared of gaining weight and thinks they're fat even if they're not.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Indigestion"> Indigestion
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Indigestion is a common digestive problem characterized by discomfort or pain in the upper abdomen or chest, often occurring after eating.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Nausea"> Nausea
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Nausea is a sensation of discomfort in the stomach that often leads to the urge to vomit.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Clay-Colored Stool"> Clay-Colored Stool
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Clay-Colored Stool refers to stools that are pale or grayish in color instead of the normal brown color</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Numbness"> Numbness
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Numbness is a lack of sensation or feeling in a part of the body can be temporary or persistent. </p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Chest Pain"> Chest Pain
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Chest Pain is discomfort or pain in the chest area, which can range from mild to severe. It may feel like pressure, tightness, or a squeezing sensation.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Heart Attack"> Heart Attack
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Heart Attack occurs when blood flow to a part of the heart muscle is blocked for a long enough time that part of the heart muscle is damaged or dies. </p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Anxiety"> Anxiety
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Involving excessive fear or anxiety and can cause various symptoms, including restlessness, irritability, muscle tension, difficulty concentrating, and sleep disturbances. </p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Intense Sweating"> Intense Sweating
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Intense Sweating refers to excessive sweating that occurs beyond what is necessary for the body's temperature regulation.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Dysphagia"> Dysphagia
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Dysphagia is difficulty swallowing.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Redness of Sclera"> Redness of Sclera
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Redness of Sclera refers to the whitish part of the eye turning red</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Edema"> Edema
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Edema means swelling caused by too much fluid in the body's tissues. It can make parts of the body look puffy or swollen.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Fatigue"> Fatigue
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Fatigue is a feeling of extreme tiredness or lack of energy that doesn't improve with rest.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Barfing"> Barfing
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Barfing is a common term for the act of forcefully expelling stomach contents through the mouth, commonly known as vomiting.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Constipation"> Constipation
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Constipation means having a hard time pooping or not pooping often enough. It can make your belly feel uncomfortable and bloated.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Watery Stools"> Watery Stools
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Watery Stools means pooping with very loose or watery poop. It's like having diarrhea, where your poop is more liquid than usual.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Dyspnea"> Dyspnea
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Dyspnea means having trouble breathing or feeling like you can't catch your breath.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Emesis"> Emesis
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Emesis is when your stomach throws up, and stuff comes out of your mouth.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Weight Gain"> Weight Gain
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Weight Gain is when you start getting heavier by putting on extra pounds. It happens when you eat more calories than your body burns.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Abdominal Pain"> Abdominal Pain
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Abdominal Pain means feeling uncomfortable or hurting in your belly.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Pain that radiates to the lower abdomen and groin"> Pain that radiates to the lower abdomen and groin
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Refers to discomfort or pain that starts in one area of the body and spreads to the lower belly and groin region.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Pain or burning sensation while urinating"> Pain or burning sensation while urinating
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Feeling uncomfortable or hurting when you pee.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Hairfall"> Hairfall
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Losing hair from your head more than usual. </p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Brittle Teeth"> Brittle Teeth
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Teeth that are weak and prone to breaking or chipping easily.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Knocking Sound from Joints"> Knocking Sound from Joints
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>A clicking or popping noise that occurs when you move your joints, such as when walking or bending.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Swollen Joints"> Swollen Joints
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Joints that are bigger than usual, often because of inflammation or fluid buildup.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Headaches"> Headaches
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Pains felt in the head or upper neck area.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Stuffy Nose"> Stuffy Nose
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Having difficulty breathing through your nose because it feels blocked or congested.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Constant Cold"> Constant Cold
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Frequently experiencing symptoms of a cold, such as a runny or stuffy nose, coughing, sneezing, or sore throat.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Difficult Falling Asleep at Night"> Difficult Falling Asleep at Night
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Having trouble getting to sleep when you go to bed.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Blood in Stools"> Blood in Stools
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Noticing blood when you pass stool. It can appear as red streaks in the stool or turn the stool black and tarry.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Chest Pain while Cough"> Chest Pain while Cough
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Experiencing discomfort or soreness in the chest area when you cough.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Blood while Coughing"> Blood while Coughing
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Seeing blood in your cough. </p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Night Sweat"> Night Sweat
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Excessive thirst and increased urination, especially during the night.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Cough"> Cough
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Excessive sweating during sleep that soak your pajamas or bedding.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Hallucinations"> Hallucinations
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Experiencing things through your senses that aren't really there. It could involve seeing, hearing, feeling, or smelling something that isn't actually present.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Lost Sense of Smell and Taste"> Lost Sense of Smell and Taste
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Losing your ability to smell and taste.</p>
+            </div>
+        </label>
+
+        <label><input type="checkbox" value="Trembling/Shaking"> Trembling/Shaking
+            <button class="show-more">More info</button>
+            <div class="more-info" style="display: none;">
+                <p>Shaking involuntary movements of your body, usually in your hands, arms, legs, or other parts which you don't have control over.</p>
+            </div>
+        </label>
+    
+    
+    
+
+        <div class="get-test-button center">
+            <button class="btn" onclick="getTest()">Get Test</button>
+        </div>
+
+<!--ye he hamara final result ka section -->
+<div class="result-wrapper">
+    <div class="result-container" style="display: block;">
+        <div class="test-suggestion-container">
+            <h3 id="predictDiseseae">Predicted illness: </h3>
+            <h3 id="testSuggestion">Suggested Tests: </h3>
+            <div class="note"><img src="../static/images/test-img2.png"> It is always the best option to consult a doctor for a professional medical opinion.</div>
+        </div>
+    </div>
+</div>
+
+  
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-copyright">
+                <p>&copy; <b>2024 UmarShlokNaved.</b> All rights reserved.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="upButton" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+        
+    </button>
+
+
+    
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="../static/js/script.js"></script> 
+</body> 
